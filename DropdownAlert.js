@@ -426,7 +426,7 @@ export default class DropdownAlert extends Component {
             <View style={style}>
               <ImageView style={StyleSheet.flatten(this.props.imageStyle)} source={source} />
 
-              <View style={[StyleSheet.flatten(this.props.defaultTextContainer), {flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}]}>
+              <View style={[StyleSheet.flatten(this.props.defaultTextContainer), {flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}]}>
                 {this.props.left}
                 <Label style={StyleSheet.flatten(this.props.titleStyle)} numberOfLines={this.props.titleNumOfLines} text={this.state.title} />
                 <Label style={StyleSheet.flatten(this.props.messageStyle)} numberOfLines={this.props.messageNumOfLines} text={this.state.message} />
