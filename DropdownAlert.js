@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
   Animated,
   Easing,
   PanResponder,
@@ -82,13 +82,13 @@ export default class DropdownAlert extends Component {
             elevation: this.props.elevation,
             opacity: this.state.fadeAnim
           }}>
-          <TouchableOpacity
+          <TouchableWithoutFeedback
             onPress={() => this.close('tap')}
             onLayout={event => this.onLayoutEvent(event)}>
 
             {children}
 
-          </TouchableOpacity>
+          </TouchableWithoutFeedback>
         </Animated.View>
       );
     }
@@ -176,6 +176,9 @@ export default class DropdownAlert extends Component {
     }
   };
   close = action => {
+    if (action === 'tap') {
+      if (this.props.onPress) this.props.onPress()
+    }
     if (action == undefined) {
       action = 'programmatic';
     }
